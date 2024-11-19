@@ -33,7 +33,7 @@ import java.util.*;
 **/
 public class Shop {
     public static void main(String[] args) {
-        ProductManager pm = new ProductManager(Locale.UK);
+        ProductManager pm = new ProductManager("en-GB");
 
         pm.createProduct(101, "Tea",
                 BigDecimal.valueOf(1.99), Rating.NOT_RATED, LocalDate.now());
@@ -52,13 +52,11 @@ public class Shop {
                 "Just add some lemon");
         pm.printProductReport(101);
 
-
-        pm.createProduct(102, "Coffee",
-                BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-        pm.reviewProduct(102, Rating.THREE_STAR,
-                "Coffee was ok");
-        pm.reviewProduct(102, Rating.ONE_STAR,
-                "Where is the milk?!");
+        pm.changeLocale("ru-RU");
+        pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99),
+                Rating.NOT_RATED);
+        pm.reviewProduct(102, Rating.THREE_STAR, "Coffee was ok");
+        pm.reviewProduct(102, Rating.ONE_STAR, "Where is the milk?!");
         pm.reviewProduct(102, Rating.FIVE_STAR,
                 "It's perfect with ten spoons of sugar!");
         pm.printProductReport(102);
@@ -75,6 +73,7 @@ public class Shop {
         pm.printProductReport(103);
 
 
+        pm.changeLocale("fr-FR");
         pm.createProduct(104, "Cookie",
                 BigDecimal.valueOf(2.99), Rating.NOT_RATED, LocalDate.now());
         pm.reviewProduct(104, Rating.THREE_STAR,
