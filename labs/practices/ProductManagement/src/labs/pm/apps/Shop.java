@@ -50,16 +50,16 @@ public class Shop {
                 "Perfect tea");
         pm.reviewProduct(101, Rating.THREE_STAR,
                 "Just add some lemon");
-        pm.printProductReport(101);
+//        pm.printProductReport(101);
 
-        pm.changeLocale("ru-RU");
+//        pm.changeLocale("ru-RU");
         pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99),
                 Rating.NOT_RATED);
         pm.reviewProduct(102, Rating.THREE_STAR, "Coffee was ok");
         pm.reviewProduct(102, Rating.ONE_STAR, "Where is the milk?!");
         pm.reviewProduct(102, Rating.FIVE_STAR,
                 "It's perfect with ten spoons of sugar!");
-        pm.printProductReport(102);
+//        pm.printProductReport(102);
 
 
         pm.createProduct(103, "Cake",
@@ -70,17 +70,17 @@ public class Shop {
                 "Good, but I've expected more chocolate");
         pm.reviewProduct(103, Rating.FIVE_STAR,
                 "This cake is perfect!");
-        pm.printProductReport(103);
+//        pm.printProductReport(103);
 
 
-        pm.changeLocale("fr-FR");
+//        pm.changeLocale("fr-FR");
         pm.createProduct(104, "Cookie",
                 BigDecimal.valueOf(2.99), Rating.NOT_RATED, LocalDate.now());
         pm.reviewProduct(104, Rating.THREE_STAR,
                 "Just another cookie");
         pm.reviewProduct(104, Rating.THREE_STAR,
                 "Ok");
-        pm.printProductReport(104);
+//        pm.printProductReport(104);
 
 
         pm.createProduct(105, "Hot Chocolate",
@@ -89,7 +89,7 @@ public class Shop {
                 "Tasty!");
         pm.reviewProduct(105, Rating.FOUR_STAR,
                 "Not bad at all");
-        pm.printProductReport(105);
+//        pm.printProductReport(105);
 
 
         pm.createProduct(106, "Chocolate",
@@ -102,7 +102,20 @@ public class Shop {
                 "Too bitter");
         pm.reviewProduct(106, Rating.ONE_STAR,
                 "I don't get it!");
-        pm.printProductReport(106);
+//        pm.printProductReport(106);
+
+        Comparator<Product> ratingSorter = (p1, p2) ->
+                p2.getRating().ordinal() - p1.getRating().ordinal();
+        Comparator<Product> priceSorter = (p1, p2) ->
+                p2.getPrice().compareTo(p1.getPrice());
+        pm.printProducts(ratingSorter.thenComparing(priceSorter));
+        pm.printProducts(ratingSorter.thenComparing(priceSorter).reversed());
+        pm.printProducts((p1, p2) ->
+                p2.getRating().ordinal() - p1.getRating().ordinal());
+        pm.printProducts((p1, p2) ->
+                p2.getPrice().compareTo(p1.getPrice()));
+
+
     }
 }
 
