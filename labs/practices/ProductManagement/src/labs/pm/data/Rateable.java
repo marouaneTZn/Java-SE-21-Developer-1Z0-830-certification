@@ -23,7 +23,7 @@ package labs.pm.data;
  * @author marwa
  **/
 @FunctionalInterface
-public interface Reteable<T> {
+public interface Rateable<T> {
     public static final Rating DEFAULT_RATING = Rating.NOT_RATED;
 
     public abstract T applayRating(Rating rating);

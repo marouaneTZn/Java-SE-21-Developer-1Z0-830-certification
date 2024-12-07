@@ -36,7 +36,7 @@ import java.util.Objects;
  * author marwa
  **/
 
-public sealed abstract class Product implements Reteable<Product> permits Food, Drink{
+public sealed abstract class Product implements Rateable<Product> permits Food, Drink{
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
     private final int id;
     private final String name;
