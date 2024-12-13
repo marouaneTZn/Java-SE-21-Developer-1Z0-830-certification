@@ -34,15 +34,15 @@ import java.util.*;
 public class Shop {
     public static void main(String[] args) {
         ProductManager pm = new ProductManager("en-GB");
-
-        pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+//        pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+        pm.parseProduct("D,101,Tea,1.99,0,2021-09-21");
         pm.printProductReport(101);
         pm.parseReview("101,4,Nice hot cup of tea");
         pm.parseReview("101,2,Rather weak tea");
         pm.parseReview("101,4,Fine tea");
         pm.parseReview("101,4,Good tea");
         pm.parseReview("101,5,Perfect tea");
-        pm.parseReview("101,3,Just add some lemon hhhhhhhhhhhhhh");
+        pm.parseReview("101,3,Just add some lemon");
         pm.printProductReport(101);
 
 //        pm.changeLocale("ru-RU");
