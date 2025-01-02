@@ -104,8 +104,7 @@ public class ProductManager {
                 .findFirst()
                 .orElseThrow(() ->
                         new ProductManagerException("Product with id " + id + " not found"));
-//            .get();
-//            .orElseGet(() -> null);
+
 
     }
 
@@ -122,12 +121,7 @@ public class ProductManager {
         List<Review> reviews = products.get(product);
         products.remove(product, reviews);
         reviews.add(new Review(rating, comments));
-//        int sum = 0;
-//        for (Review review : reviews) {
-//            sum += review.rating().ordinal();
-//        }
-//        product = product.applyRating(Reteable.convert(
-//                Math.round((float) sum / reviews.size())));
+
         product = product.applyRating(
                 Rateable.convert(
                         (int) Math.round(
@@ -155,14 +149,7 @@ public class ProductManager {
 
         txt.append(formatter.formatProduct(product));
         txt.append("\n");
-//        for (Review review : reviews) {
-//            txt.append(formatter.formatReview(review));
-//            txt.append('\n');
-//        }
-//        if (reviews.isEmpty()) {
-//            txt.append(formatter.getText("no.reviews"));
-//            txt.append('\n');
-//        }
+
         if (reviews.isEmpty()) {
             txt.append(formatter.getText("no.reviews") + '\n');
         } else {
@@ -174,13 +161,9 @@ public class ProductManager {
     }
 
     public void printProducts(Predicate<Product> filter, Comparator<Product> sorter) {
-//        List<Product> productList = new ArrayList<>(products.keySet());
-//        productList.sort(sorter);
+
         StringBuilder txt = new StringBuilder();
-//        for (Product product : productList) {
-//            txt.append(formatter.formatProduct(product));
-//            txt.append('\n');
-//        }
+
         products.keySet()
                 .stream()
                 .sorted(sorter)
